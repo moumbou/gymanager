@@ -1,0 +1,51 @@
+.simpleTable {
+    width: 100%;
+}
+
+.simpleTable tbody tr td {
+    font-weight: bold;
+    font-size: .8rem;
+    color: var(--secondary-dark-cl);
+    text-align: center;
+    text-transform: capitalize;
+    padding: 3px 0;
+}
+
+.simpleTable tbody tr td:first-of-type div {
+    margin: 0 auto;
+}
+
+.simpleTable tbody tr {
+    background-color: var(--light-gray-cl);
+}
+
+.simpleTable tbody tr:nth-of-type(2n) {
+    background-color: var(--light-cl);
+}
+
+.img {
+    width: 35px;
+    height: 35px;
+    border: 3px solid var(--secondary-dark-cl);
+    border-radius: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.icon {
+    font-weight: bolder;
+    font-size: 24px;
+}
+
+.iconSuccess {
+    color: var(--success-cl);
+}
+
+.iconWarning {
+    color: var(--warning-cl);
+}
+
+.iconDanger {
+    color: var(--danger-cl);
+}

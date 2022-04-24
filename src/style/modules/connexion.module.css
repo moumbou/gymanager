@@ -1,0 +1,171 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.container::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(0 0, 0 0, 0 0);
+  background-color: var(--secondary-light-cl);
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: fadeInAfter 1s 1s ease-in forwards;
+}
+
+@keyframes fadeInAfter {
+  0% {
+    clip-path: polygon(0 0, 0 0, 0 0);
+  }
+  50% {
+    clip-path: polygon(0 0, 0 100%, 100% 0);
+  }
+  70% {
+    clip-path: polygon(0 0, 0 96%, 96% 0);
+  }
+  100% {
+    clip-path: polygon(0 0, 0 100%, 100% 0);
+  }
+}
+
+.container[data-display="hide"]::after {
+  animation: fadeOutAfter 1s ease-in forwards;
+}
+
+@keyframes fadeOutAfter {
+  from {
+    clip-path: polygon(0 0, 0 100%, 100% 0);
+  }
+  to {
+    clip-path: polygon(0 0, 0 0, 0 0);
+  }
+}
+
+.container::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(100% 100%, 100% 100%, 100% 100%);
+  background-color: var(--secondary-dark-cl);
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: fadeInBefore 1s 1s ease-in forwards;
+}
+
+@keyframes fadeInBefore {
+  0% {
+    clip-path: polygon(100% 100%, 100% 100%, 100% 100%);
+  }
+  50% {
+    clip-path: polygon(100% 100%, 0 100%, 100% 0);
+  }
+  70% {
+    clip-path: polygon(100% 100%, 4% 100%, 100% 4%);
+  }
+  100% {
+    clip-path: polygon(100% 100%, 0 100%, 100% 0);
+  }
+}
+
+.container[data-display="hide"]::before {
+  animation: fadeOutBefore 1s ease-in forwards;
+}
+
+@keyframes fadeOutBefore {
+  from {
+    clip-path: polygon(100% 100%, 0 100%, 100% 0);
+  }
+  to {
+    clip-path: polygon(100% 100%, 100% 100%, 100% 100%);
+  }
+}
+
+.container [target="connexion"] {
+  background-color: var(--primary-cl);
+  position: relative;
+  z-index: 5;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  opacity: 0;
+  animation: fadeInConnexion 1s 2s ease-in-out forwards;
+}
+
+@keyframes fadeInConnexion {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.container[data-display="hide"] [target="connexion"] {
+  animation: fadeOutConnexion 2s ease-in-out forwards;
+}
+
+@keyframes fadeOutConnexion {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.container [target="connexion"] [target="title"] {
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--secondary-dark-cl);
+  font-weight: bolder;
+  margin: 20px 0;
+}
+
+.container [target="connexion"] [target="title"]::first-letter {
+  color: var(--active-cl);
+}
+
+.container [target="connexion"] [target="logo"] {
+  position: absolute;
+  height: 60px;
+  width: 60px;
+  background-color: var(--secondary-light-cl);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -70%);
+  border-radius: 10px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.container [target="image-selector"] {
+  display: flex;
+  align-items: flex-start;
+  gap: 5px;
+  margin-bottom: 20px;
+}
+
+.container [target="image"] {
+  width: 70px;
+  height: 70px;
+  border-radius: 3px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  background-color: var(--secondary-dark-cl);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-sizing: content-box;
+  border: 3px solid var(--primary-cl);
+}

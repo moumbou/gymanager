@@ -1,0 +1,114 @@
+.simple {
+  padding: 10px 15px;
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: var(--primary-cl);
+  background-color: var(--secondary-dark-cl);
+  border-radius: 3px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+  width: 100%;
+}
+
+.simple::placeholder {
+  color: var(--light-gray-cl);
+  opacity: 0.5;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.simple ~ label {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  top: 0;
+  left: 5px;
+  transform: translateY(-100%);
+  color: var(--secondary-dark-cl);
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.simple[color="success"] ~ label {
+  color: var(--success-cl);
+}
+
+.simple[color="danger"] ~ label {
+  color: var(--danger-cl);
+}
+
+.simple50 {
+  width: 50%;
+}
+
+.simple70 {
+  width: 70%;
+}
+
+.simpleContainer {
+  position: relative;
+}
+
+.icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  font-size: 24px;
+  color: var(--light-gray-cl);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.icon[data-color="success"] {
+  color: var(--success-cl);
+  opacity: 1;
+}
+
+.icon[data-color="danger"] {
+  color: var(--danger-cl);
+  opacity: 1;
+}
+
+.display_2 {
+  position: relative;
+  display: grid;
+  align-items: flex-start;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.simpleSelect {
+  padding: 10px 15px;
+  width: 100%;
+  height: 100%;
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: var(--primary-cl);
+  background-color: var(--secondary-dark-cl);
+  border-radius: 3px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+}
+
+.simpleSelect option {
+  padding: 10px 15px;
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: var(--primary-cl);
+  background-color: var(--secondary-dark-cl);
+  text-transform: uppercase;
+}
+
+.simpleSelect ~ label {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  top: 0;
+  left: 5px;
+  transform: translateY(-100%);
+  color: var(--secondary-dark-cl);
+  font-weight: 500;
+  text-transform: capitalize;
+}

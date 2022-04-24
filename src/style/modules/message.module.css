@@ -1,0 +1,95 @@
+.container {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  padding: 5px 20px;
+  z-index: 50;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.container li {
+  background-color: var(--danger-cl);
+  padding: 5px 10px;
+  border-radius: 3px;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+  font-weight: bolder;
+  font-size: 0.9rem;
+  color: var(--primary-cl);
+  min-width: 400px;
+  width: fit-content;
+  max-width: 600px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  pointer-events: fill;
+  transform: translateX(-150%);
+  animation: slide-in 0.5s ease-in-out forwards;
+}
+.container li::first-letter {
+  text-transform: capitalize;
+}
+
+.container li[data-color="success"] {
+  background-color: var(--success-cl);
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(-150%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.container li[slide-out="true"] {
+  animation: slide-out 0.5s ease-in-out forwards;
+}
+
+@keyframes slide-out {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-150%);
+  }
+}
+
+.container li [data-target="content"] {
+  flex: 1;
+}
+
+.container li [data-target="before"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  align-self: flex-start;
+}
+
+.container li [data-target="after"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  position: relative;
+}
+
+.container li [data-target="after"] svg:hover {
+  cursor: pointer;
+  color: var(--secondary-dark-cl);
+}
+
+.container li [data-target="after"]::before {
+  content: "";
+  height: 30px;
+  width: 1px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(-8px, -50%);
+  background-color: var(--primary-cl);
+}

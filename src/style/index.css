@@ -1,0 +1,170 @@
+:root {
+  --primary-cl: #eeeeee;
+  --secondary-dark-cl: #474554;
+  --secondary-light-cl: #aca7cb;
+  --active-cl: #ff00f1;
+  --light-gray-cl: #d3d3d3;
+  --blue-cl: #007bff;
+  --success-cl: #28a745;
+  --warning-cl: #ffc107;
+  --danger-cl: #dc3545;
+  --title-bar-hight: 30px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button,
+input,
+select {
+  outline: none;
+  border: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: .5;
+  pointer-events: none;
+}
+
+html,
+body,
+#root,
+.App {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+ul,
+li {
+  list-style: none;
+  text-decoration: none;
+}
+
+.hide {
+  display: none !important;
+}
+
+.status {
+  width: 100%;
+  min-width: 90px;
+  height: 15px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+  position: relative;
+}
+
+.status::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-radius: 3px 0 0 3px;
+  transition: all 0.3s ease-in-out;
+}
+
+.status[status="1"]::after {
+  width: 33%;
+  background-color: var(--danger-cl);
+}
+.status[status="2"]::after {
+  width: 66%;
+  background-color: var(--warning-cl);
+}
+.status[status="3"]::after {
+  width: 100%;
+  background-color: var(--success-cl);
+  border-radius: 3px;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--primary-cl);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--secondary-dark-cl);
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--light-gray-cl);
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 10px;
+  min-width: 200px;
+  text-align: center;
+  border: 3px solid var(--secondary-dark-cl);
+  position: relative;
+}
+
+.badge::before {
+  content: "";
+  position: absolute;
+  border-radius: 5px 0 0 5px;
+  top: -1px;
+  left: 0;
+  height: 110%;
+  width: 10px;
+  background-color: var(--secondary-dark-cl);
+}
+
+.badge[color="success"] {
+  color: var(--success-cl);
+  border-color: var(--success-cl);
+}
+
+.badge[color="success"]::before {
+  background-color: var(--success-cl);
+}
+
+.badge[color="danger"] {
+  color: var(--danger-cl);
+  border-color: var(--danger-cl);
+}
+
+.badge[color="danger"]::before {
+  background-color: var(--danger-cl);
+}
+
+.badge::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-transform: capitalize;
+  transform: translate(10px, -120%);
+}
+
+.badge[color="success"]::after {
+  color: var(--success-cl);
+}
+.badge[color="danger"]::after {
+  color: var(--danger-cl);
+}

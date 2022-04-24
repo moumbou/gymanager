@@ -1,0 +1,150 @@
+.main-container {
+  display: grid;
+  position: relative;
+  width: 100%;
+  height: calc(100vh - var(--title-bar-hight));
+  grid-template-columns: 50px calc(100% - 50px);
+  grid-template-rows: 1fr;
+  overflow: hidden;
+}
+
+/* SIDEBAR */
+
+.main-container .SideBar {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 10px;
+  gap: 10rem;
+  height: calc(100vh - var(--title-bar-hight));
+}
+
+.main-container .SideBar .img-profil {
+  height: 30px;
+  width: 30px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  border: 3px solid var(--secondary-light-cl);
+  box-sizing: content-box;
+}
+
+
+.main-container .SideBar h3 {
+  font-weight: bolder;
+  font-size: 1.3rem;
+  color: var(--secondary-dark-cl);
+  position: relative;
+  padding: 0 10px;
+  white-space: nowrap;
+  text-transform: uppercase;
+  pointer-events: none;
+
+  /* Border is the new background */
+  background: none;
+
+  /* Rotate from top left corner (not default) */
+  transform: translateX(0%) translateY(70%) rotate(90deg);
+  text-shadow: 3px -3px 5px rgba(0, 0, 0, 0.5);
+  /* animation: displayTitleSideBar 1s ease-in-out forwards; */
+}
+
+.main-container .SideBar h3.animate {
+  animation: AnimationTitleSideBar 1s ease-in-out !important;
+}
+
+@keyframes AnimationTitleSideBar {
+  0% {
+    transform: translateX(0%) translateY(70%) rotate(90deg);
+  }
+  50% {
+    transform: translateX(-100%) translateY(70%) rotate(90deg);
+  }
+  100% {
+    transform: translateX(0%) translateY(70%) rotate(90deg);
+  }
+}
+
+@keyframes displayTitleSideBar {
+  from {
+    transform: translateX(-100%) translateY(70%) rotate(90deg);
+  }
+  to {
+    transform: translateX(0%) translateY(70%) rotate(90deg);
+  }
+}
+
+.main-container .SideBar h3::before {
+  content: "";
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background-color: var(--active-cl);
+  position: absolute;
+  box-shadow: 3px -3px 5px rgba(0, 0, 0, 0.5);
+}
+
+.main-container .SideBar ul {
+  flex: 1;
+  padding: 10px 0;
+  border-radius: 0 5px 5px 0;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background-color: var(--secondary-dark-cl);
+}
+
+.main-container .SideBar ul.desable > li {
+  pointer-events: none;
+}
+
+.main-container .SideBar li {
+  width: 100%;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.main-container .SideBar li[active="true"] {
+  background-color: var(--active-cl);
+  pointer-events: none;
+}
+
+.main-container .SideBar li:nth-of-type(1)[active="true"] {
+  background-color: transparent;
+  pointer-events: none;
+}
+
+.main-container .SideBar li:nth-of-type(1)[active="true"] div {
+  border-color: var(--active-cl);
+}
+
+.main-container .SideBar li:hover {
+  background-color: var(--active-cl);
+}
+
+.main-container .SideBar li:nth-of-type(1):hover {
+  background-color: transparent;
+}
+
+.main-container .SideBar li:nth-of-type(1):hover div {
+  border-color: var(--active-cl);
+}
+
+.main-container .SideBar li > * {
+  color: var(--secondary-light-cl);
+  font-size: 24px;
+  pointer-events: none;
+}
+
+/* CONTENT */
+
+.main-container .content {
+  width: 100%;
+  height: calc(100vh - var(--title-bar-hight));
+}

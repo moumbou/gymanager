@@ -1,0 +1,6 @@
+.App {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 30px calc(100% - var(--title-bar-hight));
+  background-color: var(--primary-cl);
+}
