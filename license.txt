@@ -1,2 +1,1 @@
-cette version est une version veillez respecter le travaille du programmeur
-en essayant de respecter la license tout simplement !
+cette version est une version beta
